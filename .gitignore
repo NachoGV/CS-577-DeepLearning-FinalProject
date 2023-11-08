@@ -6,5 +6,5 @@
 __pycache__/
 
 # Dataset
-ExDark_Annno/
 ExDark/
+ExDark_Annno/
