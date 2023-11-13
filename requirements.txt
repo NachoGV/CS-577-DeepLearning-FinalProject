@@ -69,6 +69,7 @@ six==1.16.0
 stack-data==0.6.3
 sympy==1.12
 tifffile==2023.9.26
+timm==0.9.10
 tokenizers==0.14.1
 torch==2.1.0
 torchmetrics==1.2.0
