@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 from torch.utils.data import Dataset
 from torchvision.datasets import CocoDetection
+from image_enhancement_functions import histogram_equalization, clahe, color_balance_adjustment, min_max_contrast_enhancement
 
 class CustomImageDataset(Dataset):
     def __init__(self, img_dir, box_dir, transform=None):

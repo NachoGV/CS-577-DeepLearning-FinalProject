@@ -1,53 +1,115 @@
 import os
 import json
+import random
+
+# Seed
+random.seed(33)
 
 # Initialize COCO json format
-coco_json = {
+train_json = {
+    "images": [],
+    "annotations": [],
+    "categories": [],
+    }
+
+val_json = {
+    "images": [],
+    "annotations": [],
+    "categories": [],
+    }
+
+test_json = {
     "images": [],
     "annotations": [],
     "categories": [],
     }
 
 # Paths
-img_dir = '../ExDark/ExDark'
-box_dir = '../ExDark_Annno/ExDark_Annno'
+cat_dir = '../ExDark/ExDark'
+anno_dir = '../ExDark_All/Annotations'
+img_dir = '../ExDark_All/Images'
 coc_dir = '../ExDark_COCO'
 
 # Categories (Subfolders)
-categories = os.listdir(img_dir)
+categories = os.listdir(cat_dir)
 for i, c in enumerate(categories):
-    coco_json["categories"].append({"id": i, 
+    train_json["categories"].append({"id": i, 
+                                    "name": c})
+    val_json["categories"].append({"id": i,
+                                    "name": c})
+    test_json["categories"].append({"id": i,
                                     "name": c})
 
-# Add Images & Annotations
-xx = 0
-anno_id = 0
+# Path List
+img_list = os.listdir(img_dir)
+random.shuffle(img_list)
+
+# Split
+train_list = img_list[:int(len(img_list)*0.8)]
+val_list = img_list[int(len(img_list)*0.8):int(len(img_list)*0.9)]
+test_list = img_list[int(len(img_list)*0.9):]
+
+# Train Json
 img_id = 0
-for i, c in enumerate(categories):
+anno_id = 0
+for img in train_list:
+    # Image
+    train_json["images"].append({"id": img_id,
+                                 "file_name": img})
+    # Annotations
+    with open(os.path.join(anno_dir, img + '.txt'), 'r') as f:
+        lines = f.readlines()[1:]
+        for l in lines:
+            train_json['annotations'].append({"id": anno_id,
+                                              "image_id": img_id,
+                                              "category_id": categories.index(l.split(' ')[0]),
+                                              "bbox": l.split(' ')[1:5]})   
+            # Update annotation id 
+            anno_id += 1
+    # Update image id
+    img_id += 1
 
-    print(c)
+# Val Json
+img_id = 0
+anno_id = 0
+for img in val_list:
+    # Image
+    val_json["images"].append({"id": img_id,
+                               "file_name": img})
+    # Annotations
+    with open(os.path.join(anno_dir, img + '.txt'), 'r') as f:
+        lines = f.readlines()[1:]
+        for l in lines:
+            val_json['annotations'].append({"id": anno_id,
+                                            "image_id": img_id,
+                                            "category_id": categories.index(l.split(' ')[0]),
+                                            "bbox": l.split(' ')[1:5]})   
+            # Update annotation id 
+            anno_id += 1
+    # Update image id
+    img_id += 1
 
-    category_id = i
-    cat_dir = os.path.join(img_dir, c)
+# Test Json
+img_id = 0
+anno_id = 0
+for img in test_list:
+    # Image
+    test_json["images"].append({"id": img_id,
+                                "file_name": img})
+    # Annotations
+    with open(os.path.join(anno_dir, img + '.txt'), 'r') as f:
+        lines = f.readlines()[1:]
+        for l in lines:
+            test_json['annotations'].append({"id": anno_id,
+                                             "image_id": img_id,
+                                             "category_id": categories.index(l.split(' ')[0]),
+                                             "bbox": l.split(' ')[1:5]})   
+            # Update annotation id 
+            anno_id += 1
+    # Update image id
+    img_id += 1
 
-    for img in os.listdir(cat_dir):
-
-        # Add Image
-        coco_json["images"].append({"id": img_id, 
-                                    "file_name": img})
-        
-        # Add Annotation
-        with open(os.path.join(box_dir, c, img + '.txt'), 'r') as f:
-            lines = f.readlines()[1:]
-            for l in lines:
-                coco_json['annotations'].append({"id": anno_id,
-                                                 "image_id": img_id,
-                                                 "category_id": category_id,
-                                                 "bbox": l.split(' ')[1:5]})
-                
-                anno_id += 1
-
-        img_id += 1
-
-# Save json file
-json.dump(coco_json, open(os.path.join(coc_dir, 'coco_anno_format.json'), 'w'))
+# Save Files
+json.dump(train_json, open(os.path.join(coc_dir, 'train_set.json'), 'w'))
+json.dump(val_json, open(os.path.join(coc_dir, 'val_set.json'), 'w'))
+json.dump(test_json, open(os.path.join(coc_dir, 'test_set.json'), 'w'))
