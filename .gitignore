@@ -8,6 +8,7 @@ __pycache__/
 # Dataset
 ExDark/
 ExDark_Annno/
+ExDark_COCO
 
 # Pytorch Lightning
 lightning_logs/
