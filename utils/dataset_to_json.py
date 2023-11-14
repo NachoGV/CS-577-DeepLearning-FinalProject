@@ -22,6 +22,7 @@ for i, c in enumerate(categories):
 # Add Images & Annotations
 xx = 0
 anno_id = 0
+img_id = 0
 for i, c in enumerate(categories):
 
     print(c)
@@ -29,10 +30,10 @@ for i, c in enumerate(categories):
     category_id = i
     cat_dir = os.path.join(img_dir, c)
 
-    for j, img in enumerate(os.listdir(cat_dir)):
+    for img in os.listdir(cat_dir):
 
         # Add Image
-        coco_json["images"].append({"id": j, 
+        coco_json["images"].append({"id": img_id, 
                                     "file_name": img})
         
         # Add Annotation
@@ -40,10 +41,13 @@ for i, c in enumerate(categories):
             lines = f.readlines()[1:]
             for l in lines:
                 coco_json['annotations'].append({"id": anno_id,
-                                                 "image_id": j,
+                                                 "image_id": img_id,
                                                  "category_id": category_id,
                                                  "bbox": l.split(' ')[1:5]})
+                
                 anno_id += 1
+
+        img_id += 1
 
 # Save json file
 json.dump(coco_json, open(os.path.join(coc_dir, 'coco_anno_format.json'), 'w'))
