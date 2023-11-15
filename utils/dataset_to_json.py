@@ -47,9 +47,9 @@ img_list = os.listdir(img_dir)
 random.shuffle(img_list)
 
 # Split
-train_list = img_list[:int(len(img_list)*0.8)]
-val_list = img_list[int(len(img_list)*0.8):int(len(img_list)*0.9)]
-test_list = img_list[int(len(img_list)*0.9):]
+train_list = img_list[:100]
+val_list = img_list[100:120]
+test_list = img_list[120:140]
 
 print('Split Done')
 
@@ -123,8 +123,8 @@ for img in test_list:
 print('Test Set Done\nSaving...')
 
 # Save Files
-json.dump(train_json, open(os.path.join(coc_dir, 'train_set.json'), 'w'))
-json.dump(val_json, open(os.path.join(coc_dir, 'val_set.json'), 'w'))
-json.dump(test_json, open(os.path.join(coc_dir, 'test_set.json'), 'w'))
+json.dump(train_json, open(os.path.join(coc_dir, 'train_set_s.json'), 'w'))
+json.dump(val_json, open(os.path.join(coc_dir, 'val_set_s.json'), 'w'))
+json.dump(test_json, open(os.path.join(coc_dir, 'test_set_s.json'), 'w'))
 
 print('Done')
