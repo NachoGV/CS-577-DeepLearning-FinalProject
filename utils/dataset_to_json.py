@@ -39,6 +39,8 @@ for i, c in enumerate(categories):
                                     "name": c})
     test_json["categories"].append({"id": i,
                                     "name": c})
+    
+print('Categories Done')
 
 # Path List
 img_list = os.listdir(img_dir)
@@ -48,6 +50,8 @@ random.shuffle(img_list)
 train_list = img_list[:int(len(img_list)*0.8)]
 val_list = img_list[int(len(img_list)*0.8):int(len(img_list)*0.9)]
 test_list = img_list[int(len(img_list)*0.9):]
+
+print('Split Done')
 
 # Train Json
 img_id = 0
@@ -63,11 +67,14 @@ for img in train_list:
             train_json['annotations'].append({"id": anno_id,
                                               "image_id": img_id,
                                               "category_id": categories.index(l.split(' ')[0]),
-                                              "bbox": l.split(' ')[1:5]})   
+                                              "bbox": l.split(' ')[1:5],
+                                              "area": float(l.split(' ')[3])*float(l.split(' ')[4])})   
             # Update annotation id 
             anno_id += 1
     # Update image id
     img_id += 1
+
+print('Train Set Done')
 
 # Val Json
 img_id = 0
@@ -83,11 +90,14 @@ for img in val_list:
             val_json['annotations'].append({"id": anno_id,
                                             "image_id": img_id,
                                             "category_id": categories.index(l.split(' ')[0]),
-                                            "bbox": l.split(' ')[1:5]})   
+                                            "bbox": l.split(' ')[1:5],
+                                            "area": float(l.split(' ')[3])*float(l.split(' ')[4])})   
             # Update annotation id 
             anno_id += 1
     # Update image id
     img_id += 1
+
+print('Val Set Done')
 
 # Test Json
 img_id = 0
@@ -103,13 +113,18 @@ for img in test_list:
             test_json['annotations'].append({"id": anno_id,
                                              "image_id": img_id,
                                              "category_id": categories.index(l.split(' ')[0]),
-                                             "bbox": l.split(' ')[1:5]})   
+                                             "bbox": l.split(' ')[1:5],
+                                             "area": float(l.split(' ')[3])*float(l.split(' ')[4])})   
             # Update annotation id 
             anno_id += 1
     # Update image id
     img_id += 1
 
+print('Test Set Done\nSaving...')
+
 # Save Files
 json.dump(train_json, open(os.path.join(coc_dir, 'train_set.json'), 'w'))
 json.dump(val_json, open(os.path.join(coc_dir, 'val_set.json'), 'w'))
 json.dump(test_json, open(os.path.join(coc_dir, 'test_set.json'), 'w'))
+
+print('Done')
