@@ -3,7 +3,7 @@ import random
 import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw   
 
-def plot_coco_image(coco_dataset, imgs_path):
+def plot_coco_image(coco_dataset, imgs_path, image_id):
 
     # Category ID to Label Name
     id2label = {k: v["name"] for k, v in coco_dataset.coco.cats.items()}
@@ -12,8 +12,6 @@ def plot_coco_image(coco_dataset, imgs_path):
     colors = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'cyan', 'magenta', 'lime', 'teal', 'lavender']
 
     # Image
-    image_ids = coco_dataset.coco.getImgIds()
-    image_id = random.choice(image_ids)
     image = coco_dataset.coco.loadImgs(image_id)[0]
     print("Image ID: ", image_id, "Image: ", image["file_name"])
 
