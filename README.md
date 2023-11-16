@@ -20,3 +20,7 @@ In git's repository root folder:
 ## Authors
 * Ignacio Gomez Valverde
 * Prashanth **[ADD LAST NAME]**
+
+## References
+* [Detection-Transformer](https://github.com/AarohiSingla/Detection-Transformer/tree/main)
+* [Using Custom Datasets to train DETR for object detection](https://medium.com/@soumyajitdatta123/using-custom-datasets-to-train-detr-for-object-detection-75a6426b3f4e)
