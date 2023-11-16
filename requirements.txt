@@ -4,11 +4,15 @@ asttokens==2.4.1
 async-timeout==4.0.3
 attrs==23.1.0
 backcall==0.2.0
+Brotli @ file:///C:/Windows/Temp/abs_63l7912z0e/croots/recipe/brotli-split_1659616056886/work
 certifi==2023.7.22
-charset-normalizer==3.3.2
+cffi @ file:///C:/b/abs_49n3v2hyhr/croot/cffi_1670423218144/work
+chardet==5.2.0
+charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1698833585322/work
 colorama==0.4.6
 comm==0.1.4
 contourpy==1.1.1
+cryptography @ file:///C:/b/abs_f4do8t8jfs/croot/cryptography_1694444424531/work
 cycler==0.12.1
 debugpy==1.8.0
 decorator==5.1.1
@@ -19,7 +23,7 @@ fonttools==4.43.1
 frozenlist==1.4.0
 fsspec==2023.10.0
 huggingface-hub==0.17.3
-idna==3.4
+idna @ file:///C:/b/abs_bdhbebrioa/croot/idna_1666125572046/work
 imageio==2.32.0
 importlib-metadata==6.8.0
 importlib-resources==6.1.0
@@ -27,7 +31,7 @@ ipykernel==6.26.0
 ipython==8.16.1
 ipywidgets==8.1.1
 jedi==0.19.1
-Jinja2==3.1.2
+Jinja2 @ file:///C:/b/abs_7cdis66kl9/croot/jinja2_1666908141852/work
 jupyter_client==8.5.0
 jupyter_core==5.4.0
 jupyterlab-widgets==3.0.9
@@ -35,57 +39,65 @@ kiwisolver==1.4.5
 lazy_loader==0.3
 lightning-utilities==0.9.0
 Markdown==3.5.1
-MarkupSafe==2.1.3
+MarkupSafe @ file:///C:/ci/markupsafe_1654508077284/work
 matplotlib==3.8.0
 matplotlib-inline==0.1.6
-mpmath==1.3.0
+mkl-fft @ file:///C:/b/abs_19i1y8ykas/croot/mkl_fft_1695058226480/work
+mkl-random @ file:///C:/b/abs_edwkj1_o69/croot/mkl_random_1695059866750/work
+mkl-service==2.4.0
+mpmath @ file:///C:/b/abs_7833jrbiox/croot/mpmath_1690848321154/work
 multidict==6.0.4
 nest-asyncio==1.5.8
-networkx==3.2.1
-numpy==1.26.1
+networkx @ file:///C:/b/abs_e6gi1go5op/croot/networkx_1690562046966/work
+numpy @ file:///C:/b/abs_9fu2cs2527/croot/numpy_and_numpy_base_1695830496596/work/dist/numpy-1.26.0-cp39-cp39-win_amd64.whl#sha256=9df7f35b8a04328650588772e3df359b51f1e83651ab665c98af9dbcf9a088c2
 opencv-python==4.8.1.78
 opencv-python-headless==4.8.1.78
 packaging==23.2
 pandas==2.1.2
 parso==0.8.3
 pickleshare==0.7.5
-Pillow==10.0.1
+Pillow @ file:///C:/b/abs_20ztcm8lgk/croot/pillow_1696580089746/work
 platformdirs==3.11.0
 prompt-toolkit==3.0.39
 psutil==5.9.6
 pure-eval==0.2.2
 pycocotools==2.0.7
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 Pygments==2.16.1
+pyOpenSSL @ file:///C:/b/abs_08f38zyck4/croot/pyopenssl_1690225407403/work
 pyparsing==3.1.1
+PySocks @ file:///C:/ci/pysocks_1605307512533/work
 python-dateutil==2.8.2
 pytorch-lightning==2.1.1
 pytz==2023.3.post1
 pywin32==306
-PyYAML==6.0.1
+PyYAML @ file:///C:/b/abs_782o3mbw7z/croot/pyyaml_1698096085010/work
 pyzmq==25.1.1
 regex==2023.10.3
-requests==2.31.0
+requests @ file:///C:/b/abs_316c2inijk/croot/requests_1690400295842/work
 safetensors==0.4.0
 scikit-image==0.22.0
 scipy==1.11.3
 six==1.16.0
 stack-data==0.6.3
 supervision==0.16.0
-sympy==1.12
+sympy @ file:///C:/b/abs_95fbf1z7n6/croot/sympy_1668202411612/work
 tifffile==2023.9.26
 timm==0.9.10
 tokenizers==0.14.1
-torch==2.1.0
+torch==2.1.0+cu121
+torchaudio==2.1.0+cu121
 torchmetrics==1.2.0
 torchvision==0.16.0
 tornado==6.3.3
 tqdm==4.66.1
 traitlets==5.12.0
 transformers==4.35.0
-typing_extensions==4.8.0
+typing_extensions @ file:///C:/b/abs_213vg2cd1l/croot/typing_extensions_1690297804941/work
 tzdata==2023.3
-urllib3==2.0.7
+urllib3 @ file:///C:/b/abs_9cmlsrm3ys/croot/urllib3_1698257595508/work
 wcwidth==0.2.8
 widgetsnbextension==4.0.9
+win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
 yarl==1.9.2
 zipp==3.17.0

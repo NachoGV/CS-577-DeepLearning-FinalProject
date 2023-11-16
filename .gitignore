@@ -8,6 +8,7 @@ __pycache__/
 ExDark/
 ExDark_Annno/
 ExDark_All/
+ExDark_COCO/
 
 # Pytorch Lightning
 lightning_logs/
