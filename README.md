@@ -15,11 +15,10 @@ In git's repository root folder:
 ## Documents
 * Project Intermediate Report - [Word Document](https://iit0-my.sharepoint.com/personal/pvidhyaravikumar_hawk_iit_edu/Documents/DL_Intermediate%20Project%20Report.docx?d=w016b9bc6dead47829f1876795bf3bb6e&csf=1&web=1&e=LKwkTV)
 * Project Presentation - [Google PPT Document](https://docs.google.com/presentation/d/1wyljypQYRHxmpP_kKwDI-fUVvFBJUGjmEKa7qZp6xbk/edit?usp=sharing)
-* Python Virtual Envitoment Requirements - Text Document - ./requirements.txt
 
 ## Authors
-* Ignacio Gomez Valverde
-* Prashanth **[ADD LAST NAME]**
+* Ignacio Gomez Valverde (A20552714)
+* Prashanth V.R. (A20531508)
 
 ## References
 * [Detection-Transformer](https://github.com/AarohiSingla/Detection-Transformer/tree/main)
