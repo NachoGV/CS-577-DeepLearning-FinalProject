@@ -28,7 +28,7 @@ def plot_coco_image(coco_dataset, imgs_path, image_id):
     for anno in annotations:
         cat_id = anno['category_id']
         bbox = [int(b) for b in anno["bbox"]]
-        draw.rectangle([bbox[0], bbox[1], bbox[0]+bbox[2], bbox[1]+bbox[3]], width=3, outline=colors[cat_id])
+        draw.rectangle([bbox[0], bbox[1], bbox[0]+bbox[2], bbox[1]+bbox[3]], width=7, outline=colors[cat_id])
         draw.text([bbox[0], bbox[1]], id2label[cat_id], fill=colors[cat_id])
     plt.imshow(img)
     plt.show()
