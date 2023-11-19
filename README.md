@@ -21,5 +21,6 @@ In git's repository root folder:
 * Prashanth V.R. (A20531508)
 
 ## References
+* [End-to-End Detection with Transformers](https://arxiv.org/abs/2005.12872)
 * [Detection-Transformer](https://github.com/AarohiSingla/Detection-Transformer/tree/main)
 * [Using Custom Datasets to train DETR for object detection](https://medium.com/@soumyajitdatta123/using-custom-datasets-to-train-detr-for-object-detection-75a6426b3f4e)
