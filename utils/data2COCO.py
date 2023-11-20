@@ -47,9 +47,20 @@ img_list = os.listdir(img_dir)
 random.shuffle(img_list)
 
 # Split
-train_list = img_list[:500]
-val_list = img_list[500:550]
-test_list = img_list[550:600]
+train_list = []
+val_list = []
+test_list = []
+for subf in os.listdir(cat_dir):
+    subdir = os.path.join(cat_dir, subf)
+    imgs = os.listdir(subdir)
+    train_list.extend(imgs[:250])
+    val_list.extend(imgs[250:400])
+    test_list.extend(imgs[400:])
+
+# Print values
+print('Length of train set: ', len(train_list))
+print('Length of val set: ', len(val_list))
+print('Length of test set: ', len(test_list))
 
 print('Split Done')
 
