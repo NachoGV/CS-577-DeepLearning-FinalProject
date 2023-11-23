@@ -1,55 +1,11 @@
-import os
-import cv2
+import torch
 import numpy as np
-from torch.utils.data import Dataset
+import imgaug as ia
+from PIL import Image
+from torchvision.transforms import ToTensor
 from torchvision.datasets import CocoDetection
+from imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
 from image_enhancement_functions import histogram_equalization, clahe, color_balance_adjustment, min_max_contrast_enhancement
-
-class CustomImageDataset(Dataset):
-    def __init__(self, img_dir, box_dir, transform=None):
-        self.img_dir = img_dir
-        self.transform = transform
-        self.classes = os.listdir(img_dir)  # Assuming each directory is a different class
-        self.img_paths = []
-        self.box_paths = []
-        self.class_count = {}
-        for c in self.classes:
-
-            # Image
-            class_dir = os.path.join(img_dir, c)
-            self.img_paths += [os.path.join(class_dir, img) for img in os.listdir(class_dir)]
-
-            # Bounding box
-            class_dir = os.path.join(box_dir, c)
-            self.box_paths += [os.path.join(class_dir, box) for box in os.listdir(class_dir)]
-
-            # Class count
-            self.class_count[c] = len(os.listdir(class_dir))
-
-    def __len__(self):
-        return len(self.img_paths)
-
-    def __getitem__(self, idx):
-
-        # Image
-        img_path = self.img_paths[idx]
-        image = np.array(cv2.imread(img_path, cv2.IMREAD_COLOR))
-        if self.transform:
-            image = self.transform(image)
-
-        # Label
-        label = self.classes.index(os.path.basename(os.path.dirname(img_path)))  # Get class index
-
-        # Bounding box
-        box_path = self.box_paths[idx]
-        box = []
-        with open(box_path, 'r') as f:
-            line = f.readlines()[1]
-            box = line.split(' ')[1:5]
-
-        return image, label, box
-    
-# ----------------------------------------------------------------------------------------------------------
 
 class CocoDetection(CocoDetection):
     def __init__(
@@ -65,9 +21,48 @@ class CocoDetection(CocoDetection):
     def __getitem__(self, idx):
         images, annotations = super(CocoDetection, self).__getitem__(idx)        
         image_id = self.ids[idx]
-        annotations = {'image_id': image_id, 'annotations': annotations}
-        encoding = self.image_processor(images=images, annotations=annotations, return_tensors="pt")
-        pixel_values = encoding["pixel_values"].squeeze()
-        target = encoding["labels"][0]
+        annotations2 = {'image_id': image_id, 'annotations': annotations}
+        
+        ''' FACEBOOK PREPROCESSING '''
+        #encoding = self.image_processor(images=images, annotations=annotations2, return_tensors="pt")
+        #pixel_values = encoding["pixel_values"].squeeze()
+        #target = encoding["labels"][0]
+        
 
-        return pixel_values, target
+        ''' CUSTOM PREPROCESSING '''
+        # Image
+        my_pixel_values = np.array(images)
+        my_pixel_values = clahe(my_pixel_values)
+        size1, size2 = 500, 500
+        image_rescaled = ia.imresize_single_image(my_pixel_values, (size1, size2))
+        image_rescaled_Tensor = ToTensor()(image_rescaled)
+
+        # Target
+        my_target = {'size': torch.from_numpy(np.array([image_rescaled_Tensor.shape[1], image_rescaled_Tensor.shape[2]])).to(torch.int64),
+                     'image_id': torch.from_numpy(np.array([image_id])).to(torch.int64),
+        }
+
+        # Annotations
+        class_labels = []
+        bboxes = []
+        areas = []
+        for ann in annotations:
+            class_labels.append(ann['category_id'])
+            
+            og_box = [float(b) for b in ann['bbox']]
+            bbs = BoundingBoxesOnImage([BoundingBox(x1=og_box[0], y1=og_box[1], x2=og_box[0]+og_box[2], y2=og_box[1]+og_box[3])],
+                                        shape=my_pixel_values.shape)
+            bbs_rescaled = bbs.on(image_rescaled)
+            new_x1 = round(bbs_rescaled[0].x1)
+            new_y1 = round(bbs_rescaled[0].y1)
+            new_w = round(bbs_rescaled[0].x2) - round(bbs_rescaled[0].x1)
+            new_h = round(bbs_rescaled[0].y2) - round(bbs_rescaled[0].y1)
+            bboxes.append([new_x1, new_y1, new_w, new_h])
+    
+            areas.append(new_w * new_h)
+
+        my_target['class_labels'] = torch.from_numpy(np.array(class_labels)).to(torch.int64)
+        my_target['boxes'] = torch.from_numpy(np.array(bboxes)).to(torch.float32)
+        my_target['area'] = torch.from_numpy(np.array(areas)).to(torch.float32)
+
+        return image_rescaled_Tensor, my_target #, pixel_values, target
