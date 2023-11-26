@@ -17,11 +17,18 @@ In git's repository root folder:
 * [./ExDark_Annno/ExDark_Annno](https://drive.google.com/file/d/1P3iO3UYn7KoBi5jiUkogJq96N6maZS1i/view?usp=sharing) - Original annotations from ExDark's git repository, subfolders for categories
 * [./ExDark_All](https://drive.google.com/drive/folders/12HhqaCy_45DxXQ6t49S3_It4mKBIsFHy?usp=sharing) - All images and annotations without subfolders
 * [./ExDark_COCO](https://drive.google.com/drive/folders/1sabKOSHui8G8cI4w_lLxb4outId2YV_r?usp=sharing) - .JSON files for COCO format dataset generator
+### Split
+* 3200 images for training - 250 per class
+* 1800 images for validation - 150 per class
+* Rest of the images for testing
 
 ## Documents
 * Project Intermediate Report - [Word Document](https://iit0-my.sharepoint.com/personal/pvidhyaravikumar_hawk_iit_edu/Documents/DL_Intermediate%20Project%20Report.docx?d=w016b9bc6dead47829f1876795bf3bb6e&csf=1&web=1&e=LKwkTV)
 * Project Presentation - [Google PPT Document](https://docs.google.com/presentation/d/1wyljypQYRHxmpP_kKwDI-fUVvFBJUGjmEKa7qZp6xbk/edit?usp=sharing)
 * Project Final Report - [Word Document](https://iit0-my.sharepoint.com/personal/pvidhyaravikumar_hawk_iit_edu/Documents/OBJECT%20DETECTION%20UNDER%20LOW-LIGHTING%20CONDITIONS.docx?d=w16f0c23dae97471390d5f54b601c5b1f&csf=1&web=1&e=mkvVbQ)
+
+## Trained Models
+* Transformer w/clahe enhancement - [Files](https://drive.google.com/drive/folders/1Hms3-erIrkN-eKLadu79ESm6ndJfzO8B?usp=drive_link)
 
 ## Authors
 * Ignacio Gomez Valverde (A20552714)
