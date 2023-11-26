@@ -47,7 +47,7 @@ img_list = os.listdir(img_dir)
 random.shuffle(img_list)
 
 # Split
-'''train_list = []
+train_list = []
 val_list = []
 test_list = []
 for subf in os.listdir(cat_dir):
@@ -56,10 +56,6 @@ for subf in os.listdir(cat_dir):
     train_list.extend(imgs[:250])
     val_list.extend(imgs[250:400])
     test_list.extend(imgs[400:])
-'''
-train_list = img_list[:320]
-val_list = img_list[320:370]
-test_list = img_list[370:]
 
 # Print values
 print('Length of train set: ', len(train_list))

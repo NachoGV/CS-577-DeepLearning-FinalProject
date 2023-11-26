@@ -12,6 +12,3 @@ ExDark_COCO/
 
 # Pytorch Lightning
 lightning_logs/
-
-# Extra code file
-extras.py
