@@ -32,7 +32,7 @@ class CocoDetection(CocoDetection):
         ''' CUSTOM PREPROCESSING '''
         # Image
         my_pixel_values = np.array(images)
-        my_pixel_values = clahe(my_pixel_values)
+        my_pixel_values = clahe(my_pixel_values) # ENHANCEMENT FUNCTION APPLICATION
         size1, size2 = 700, 700
         image_rescaled = ia.imresize_single_image(my_pixel_values, (size1, size2))
         image_rescaled_Tensor = ToTensor()(image_rescaled)
