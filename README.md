@@ -18,9 +18,9 @@ In git's repository root folder:
 * [./ExDark_All](https://drive.google.com/drive/folders/12HhqaCy_45DxXQ6t49S3_It4mKBIsFHy?usp=sharing) - All images and annotations without subfolders
 * [./ExDark_COCO](https://drive.google.com/drive/folders/1sabKOSHui8G8cI4w_lLxb4outId2YV_r?usp=sharing) - .JSON files for COCO format dataset generator
 ### Split
-* 3200 images for training - 250 per class
+* 3000 images for training - 250 per class
 * 1800 images for validation - 150 per class
-* Rest of the images for testing
+* 2563 images for testing - rest of the images per class
 
 ## Documents
 * Project Intermediate Report - [Word Document](https://iit0-my.sharepoint.com/personal/pvidhyaravikumar_hawk_iit_edu/Documents/DL_Intermediate%20Project%20Report.docx?d=w016b9bc6dead47829f1876795bf3bb6e&csf=1&web=1&e=LKwkTV)
@@ -35,9 +35,6 @@ In git's repository root folder:
 * Prashanth V.R. (A20531508)
 
 ## References
-### Single Shot Detector
-* [SSD: Single Shot MultiBox Detector](https://arxiv.org/abs/1512.02325)
-* [PyTorch SSD](https://pytorch.org/hub/nvidia_deeplearningexamples_ssd/)
 ### Transformer
 * [End-to-End Detection with Transformers](https://arxiv.org/abs/2005.12872)
 * [Detection-Transformer](https://github.com/AarohiSingla/Detection-Transformer/tree/main)

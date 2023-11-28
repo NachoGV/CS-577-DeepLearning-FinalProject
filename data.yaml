@@ -1,6 +1,0 @@
-train: C:\\Users\omrav\OneDrive\Desktop\IITC AI\Fall 23\CS 577 Deep Learning\Project\Yolov8\CB_Dataset\train
-val: C:\\Users\omrav\OneDrive\Desktop\IITC AI\Fall 23\CS 577 Deep Learning\Project\Yolov8\CB_Dataset\val
-
-nc: 12
-
-names: ['Bicycle', 'Boat', 'Bottle', 'Bus', 'Car', 'Cat', 'Chair', 'Cup', 'Dog', 'Motorbike', 'People', 'Table']

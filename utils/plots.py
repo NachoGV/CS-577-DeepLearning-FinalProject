@@ -44,6 +44,9 @@ def plot_coco_image(coco_dataset, imgs_path, image_id, width):
 
 def plot_image_vs_prediction(image_id, test_path, model_path, width):
 
+    # Device
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+
     # CONSTANTS
     imgs_path = "../ExDark_All/Images"
     image_processor = DetrImageProcessor.from_pretrained("facebook/detr-resnet-50")
@@ -62,18 +65,14 @@ def plot_image_vs_prediction(image_id, test_path, model_path, width):
     cv_image = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
 
     # Predicted Image
-    pred_image = None
-    model = DetrForObjectDetection.from_pretrained(model_path)
-    pred_size = []
+    model = DetrForObjectDetection.from_pretrained(model_path).to(device)
     with torch.no_grad():
-        inputs = image_processor(images=cv_image, return_tensors='pt')
-        pred_size = inputs['pixel_values'].shape[2:]
+        inputs = image_processor(images=cv_image, return_tensors='pt').to(device)
         outputs = model(**inputs)
-        target_sizes = torch.tensor([pred_size])
         results = image_processor.post_process_object_detection(
             outputs=outputs, 
             threshold=0.001, 
-            target_sizes=target_sizes
+            target_sizes=[og_size]
         )[0]
 
     # Print Original Annotations
@@ -83,7 +82,6 @@ def plot_image_vs_prediction(image_id, test_path, model_path, width):
 
     # Print Predicted Annotations only if score is above 80% confidence
     print("\nPredicted Annotations: ")
-    print('Predictes size: ', pred_size)
     pred_labels = []
     pred_boxes = []
     for i in range(len(results["scores"])):
@@ -97,8 +95,7 @@ def plot_image_vs_prediction(image_id, test_path, model_path, width):
 
     # Plots - Preparation
     og_image = T.ToPILImage()(og_image)
-    pred_image = ia.imresize_single_image(cv_image, (pred_size[0], pred_size[1]))
-    pred_image = T.ToPILImage()(pred_image)
+    pred_image = og_image.copy()
     og_draw = ImageDraw.Draw(og_image)
     pred_draw = ImageDraw.Draw(pred_image)
 
