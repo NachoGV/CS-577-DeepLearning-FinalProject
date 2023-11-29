@@ -1,12 +1,6 @@
 # CS-577-DeepLearning-FinalProject
 
 ## Project Description
-A low-light environment is an essential element of our daily lives. As the day turns to night, the amount of available light diminishes, making our surroundings darker and, as a result, reducing our ability to complete even minor tasks owing to the loss of visibility. Computer vision research and systems targeted at supporting individuals in their daily tasks, as well as increasing safety and security, could be extremely beneficial in such circumstances. However, most low-light research focuses on image augmentation, which has no relevance to assistive systems, or night vision surveillance, which necessitates expensive hardware, while more related fields such as object recognition receive little attention. 
-
-Because of the intrinsic complexity of real-life situations, object detection is a difficult challenge. It involves accurately recognizing and localizing objects within an image or video frame. The variety in item appearance, scale, orientation, occlusion, and ambient parameters contributes to this complexity. Objects can take on a variety of shapes, colors, and sizes, making it challenging for detection algorithms to generalize well. Objects can also overlap, occlude one another, or merge into complex backdrops, adding to the difficulty. 
-
-Detecting objects in low-light circumstances is difficult due to decreased visibility and the restricted amount of information available to computer vision systems. In such cases, the acquired images frequently lack contrast and clarity, making it difficult to differentiate things from their surroundings. This lack of illumination can lead to increased noise, loss of significant details, and lower object identification algorithm accuracy. Furthermore, shadows and reflections can complicate the task by producing false positives or hiding items of interest. To address these issues, low-light-specific hardware and algorithms are necessary, which frequently involve the use of advanced sensors and image enhancement techniques to improve the accuracy and reliability of object detection under these conditions. 
-
 This project aims to compare and evaluate the performance of transformer-based and traditional deep-learning object detection models on different image enhancement techniques.
 
 ## Dataset - Exclusively-Dark-Image-Dataset
