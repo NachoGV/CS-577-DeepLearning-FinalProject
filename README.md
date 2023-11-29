@@ -16,7 +16,7 @@ In git's repository root folder:
 * [./ExDark/ExDark](https://drive.google.com/file/d/1nGIu6f3PRpiR8d_q-AGwmTqDoli3sSSu/view?usp=drive_link) - Original images from ExDark's git repository, subfolers for categories
 * [./ExDark_Annno/ExDark_Annno](https://drive.google.com/file/d/1IJubUa14NfAHSzANcLGR8VRre0v7X4RH/view?usp=drive_link) - Original annotations from ExDark's git repository, subfolders for categories
 * [./ExDark_All](https://drive.google.com/file/d/1BboI2sfM0bdoETxsskO5IHKHtPd_LzME/view?usp=drive_link) - All images and annotations without subfolders
-* [./ExDark_COCO](https://drive.google.com/file/d/1ZozYhkKyhMIQ4R_f4Z3Sf2tUBhV_HmoY/view?usp=drive_link) - .JSON files for COCO format dataset generator (used by DETR)
+* [./ExDark_COCO](https://drive.google.com/file/d/17Fx_u2fspcuLHLVOfI_FerDgw5KUqqPY/view?usp=drive_link) - .JSON files for COCO format dataset generator (used by DETR)
 * [./ExDark_YOLO](#TODO) - File for YOLO model training 
 ### Split
 * 3000 images for training - 250 per class

@@ -28,7 +28,7 @@ test_json = {
 cat_dir = '../ExDark/ExDark'
 anno_dir = '../ExDark_All/Annotations'
 img_dir = '../ExDark_All/Images'
-coc_dir = '../ExDark_COCO' # Change to your own path
+coc_dir = '../ExDark_COCO'
 
 # Categories (Subfolders)
 categories = os.listdir(cat_dir)
