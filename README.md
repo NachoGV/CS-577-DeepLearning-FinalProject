@@ -7,11 +7,11 @@ This project aims to compare and evaluate the performance of transformer-based a
 The Exclusively Dark [(ExDark)](https://github.com/cs-chan/Exclusively-Dark-Image-Dataset) dataset contains the largest collection of natural low-light images taken in visible light to date, including object level annotation. 
 ### Dataset Folders Structure
 In git's repository root folder:
-* [./ExDark/ExDark](https://drive.google.com/file/d/1nGIu6f3PRpiR8d_q-AGwmTqDoli3sSSu/view?usp=drive_link) - Original images from ExDark's git repository, subfolers for categories
-* [./ExDark_Annno/ExDark_Annno](https://drive.google.com/file/d/1IJubUa14NfAHSzANcLGR8VRre0v7X4RH/view?usp=drive_link) - Original annotations from ExDark's git repository, subfolders for categories
-* [./ExDark_All](https://drive.google.com/file/d/1BboI2sfM0bdoETxsskO5IHKHtPd_LzME/view?usp=drive_link) - All images and annotations without subfolders
-* [./ExDark_COCO](https://drive.google.com/file/d/17Fx_u2fspcuLHLVOfI_FerDgw5KUqqPY/view?usp=drive_link) - .JSON files for COCO format dataset generator (used by DETR)
-* [./ExDark_YOLO](#TODO) - File for YOLO model training 
+* [./ExDark/ExDark]()(#TODO - Link Missing) - Original images from ExDark's git repository, subfolers for categories
+* [./ExDark_Annno/ExDark_Annno]()(#TODO - Link Missing) - Original annotations from ExDark's git repository, subfolders for categories
+* [./ExDark_All]()(#TODO - Link Missing) - All images and annotations without subfolders
+* [./ExDark_COCO]()(#TODO - Link Missing) - .JSON files for COCO format dataset generator (used by DETR)
+* [./ExDark_YOLO]()(#TODO - Link Missing) - File for YOLO model training 
 ### Split
 * 3000 images for training - 250 per class
 * 1800 images for validation - 150 per class
