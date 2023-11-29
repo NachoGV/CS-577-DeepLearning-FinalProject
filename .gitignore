@@ -10,6 +10,10 @@ ExDark_All/
 ExDark_Annno/
 ExDark_COCO/
 ExDark_YOLO/
+*.zip
 
-# Pytorch Lightning
+# Yolo Outputs
+runs/
+
+# Transformer Outputs
 lightning_logs/
