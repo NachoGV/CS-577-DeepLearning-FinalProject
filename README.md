@@ -1,23 +1,17 @@
 # CS-577-DeepLearning-FinalProject
 
 ## Project Description
-A low-light environment is an essential element of our daily lives. As the day turns to night, the amount of available light diminishes, making our surroundings darker and, as a result, reducing our ability to complete even minor tasks owing to the loss of visibility. Computer vision research and systems targeted at supporting individuals in their daily tasks, as well as increasing safety and security, could be extremely beneficial in such circumstances. However, most low-light research focuses on image augmentation, which has no relevance to assistive systems, or night vision surveillance, which necessitates expensive hardware, while more related fields such as object recognition receive little attention. 
-
-Because of the intrinsic complexity of real-life situations, object detection is a difficult challenge. It involves accurately recognizing and localizing objects within an image or video frame. The variety in item appearance, scale, orientation, occlusion, and ambient parameters contributes to this complexity. Objects can take on a variety of shapes, colors, and sizes, making it challenging for detection algorithms to generalize well. Objects can also overlap, occlude one another, or merge into complex backdrops, adding to the difficulty. 
-
-Detecting objects in low-light circumstances is difficult due to decreased visibility and the restricted amount of information available to computer vision systems. In such cases, the acquired images frequently lack contrast and clarity, making it difficult to differentiate things from their surroundings. This lack of illumination can lead to increased noise, loss of significant details, and lower object identification algorithm accuracy. Furthermore, shadows and reflections can complicate the task by producing false positives or hiding items of interest. To address these issues, low-light-specific hardware and algorithms are necessary, which frequently involve the use of advanced sensors and image enhancement techniques to improve the accuracy and reliability of object detection under these conditions. 
-
 This project aims to compare and evaluate the performance of transformer-based and traditional deep-learning object detection models on different image enhancement techniques.
 
 ## Dataset - Exclusively-Dark-Image-Dataset
 The Exclusively Dark [(ExDark)](https://github.com/cs-chan/Exclusively-Dark-Image-Dataset) dataset contains the largest collection of natural low-light images taken in visible light to date, including object level annotation. 
 ### Dataset Folders Structure
 In git's repository root folder:
-* [./ExDark/ExDark](https://drive.google.com/file/d/1nGIu6f3PRpiR8d_q-AGwmTqDoli3sSSu/view?usp=drive_link) - Original images from ExDark's git repository, subfolers for categories
-* [./ExDark_Annno/ExDark_Annno](https://drive.google.com/file/d/1IJubUa14NfAHSzANcLGR8VRre0v7X4RH/view?usp=drive_link) - Original annotations from ExDark's git repository, subfolders for categories
-* [./ExDark_All](https://drive.google.com/file/d/1BboI2sfM0bdoETxsskO5IHKHtPd_LzME/view?usp=drive_link) - All images and annotations without subfolders
-* [./ExDark_COCO](https://drive.google.com/file/d/17Fx_u2fspcuLHLVOfI_FerDgw5KUqqPY/view?usp=drive_link) - .JSON files for COCO format dataset generator (used by DETR)
-* [./ExDark_YOLO](#TODO) - File for YOLO model training 
+* [./ExDark/ExDark]()(#TODO - Link Missing) - Original images from ExDark's git repository, subfolers for categories
+* [./ExDark_Annno/ExDark_Annno]()(#TODO - Link Missing) - Original annotations from ExDark's git repository, subfolders for categories
+* [./ExDark_All]()(#TODO - Link Missing) - All images and annotations without subfolders
+* [./ExDark_COCO]()(#TODO - Link Missing) - .JSON files for COCO format dataset generator (used by DETR)
+* [./ExDark_YOLO]()(#TODO - Link Missing) - File for YOLO model training 
 ### Split
 * 3000 images for training - 250 per class
 * 1800 images for validation - 150 per class
