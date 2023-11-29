@@ -120,12 +120,15 @@ for img in test_list:
     # Annotations
     with open(os.path.join(anno_dir, img + '.txt'), 'r') as f:
         lines = f.readlines()[1:]
+        n_lines = len(lines)
         for l in lines:
             test_json['annotations'].append({"id": anno_id,
                                              "image_id": img_id,
                                              "category_id": categories.index(l.split(' ')[0]),
                                              "bbox": l.split(' ')[1:5],
-                                             "area": float(l.split(' ')[3])*float(l.split(' ')[4])})   
+                                             "area": float(l.split(' ')[3])*float(l.split(' ')[4]),
+                                             "iscrowd": 1 if n_lines > 1 else 0})
+                                                
             # Update annotation id 
             anno_id += 1
     # Update image id
