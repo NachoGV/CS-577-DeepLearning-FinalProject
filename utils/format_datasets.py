@@ -367,8 +367,21 @@ def data2YOLO():
 # -----------------------------------------------------------------------------------------------
 
 def dert_results2COCO():
-
-    name = input("Enter enhancement:\n>")
+    name = None
+    enhancement = None
+    inp = input("Enter enhancement:\n  1. clahe_50\n  2. color_balance_adjustement_50\n  3. clahe_100\n>")
+    if inp == "1":
+        name = "clahe/output_50"
+        enhancement = "clahe"
+    elif inp == "2":
+        name = "color_balance_adjustment/output"
+        enhancement = "color_balance"
+    elif inp == "3":
+        name = "clahe/output"
+        enhancement = "clahe"
+    else:
+        print("Invalid input")
+        return
 
     # Device
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
@@ -376,11 +389,11 @@ def dert_results2COCO():
     # Paths
     imgs_path = "../ExDark_All/Images"
     test_path = "../ExDark_COCO/test_set.json"
-    model_path = "../Models/Transformer/lightning_logs/clahe/"
+    model_path = f"../Models/Transformer/lightning_logs/{name}"
 
     # Initialization
     image_processor = DetrImageProcessor.from_pretrained("facebook/detr-resnet-50")
-    test_set = CocoDetection(image_directory_path=imgs_path,  annotation_file_path=test_path, image_processor=image_processor)
+    test_set = CocoDetection(image_directory_path=imgs_path,  annotation_file_path=test_path, image_processor=image_processor, enhancement=enhancement)
     model = DetrForObjectDetection.from_pretrained(model_path).to(device)
     results = {"annotations": []}
     
@@ -419,7 +432,7 @@ def dert_results2COCO():
         image_id += 1
 
     # Save as json
-    with open(f'../Models/Transformer/lightning_logs/{name}/output/results.json', 'w') as fp:
+    with open(f'../Models/Transformer/lightning_logs/{name}/results.json', 'w') as fp:
         json.dump(results, fp)
 
 # -----------------------------------------------------------------------------------------------

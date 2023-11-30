@@ -53,7 +53,7 @@ def plot_image_vs_prediction(image_id, test_path, model_path, width):
     colors = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'cyan', 'magenta', 'lime', 'teal', 'lavender']
 
     # Dataset Load
-    test_set = CocoDetection(image_directory_path=imgs_path,  annotation_file_path=test_path, image_processor=image_processor)
+    test_set = CocoDetection(image_directory_path=imgs_path,  annotation_file_path=test_path, image_processor=image_processor, enhancement='clahe')
     id2label = {k: v["name"] for k, v in test_set.coco.cats.items()}
 
     # Original Image
