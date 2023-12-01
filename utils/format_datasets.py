@@ -369,16 +369,19 @@ def data2YOLO():
 def dert_results2COCO():
     name = None
     enhancement = None
-    inp = input("Enter enhancement:\n  1. clahe_50\n  2. color_balance_adjustement_50\n  3. clahe_100\n>")
+    inp = input("Enter enhancement:\n  1. Clahe\n  2. Color Balance Adjustement\n  3. Histogram Equialization\n  4. No Enhancement\n>")
     if inp == "1":
-        name = "clahe/output_50"
+        name = "clahe/output"
         enhancement = "clahe"
     elif inp == "2":
         name = "color_balance_adjustment/output"
-        enhancement = "color_balance"
+        enhancement = "color_balance_adjustment"
     elif inp == "3":
-        name = "clahe/output"
-        enhancement = "clahe"
+        name = "he/output"
+        enhancement = "he"
+    elif inp == "4":
+        name = "raw/output"
+        enhancement = 'raw'
     else:
         print("Invalid input")
         return

@@ -42,7 +42,7 @@ def plot_coco_image(coco_dataset, imgs_path, image_id, width):
 
 # --------------------------------------------------------------------------------
 
-def plot_image_vs_prediction(image_id, test_path, model_path, width):
+def plot_image_vs_prediction(image_id, test_path, model_path, width, enhancement):
 
     # Device
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
@@ -53,7 +53,7 @@ def plot_image_vs_prediction(image_id, test_path, model_path, width):
     colors = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'cyan', 'magenta', 'lime', 'teal', 'lavender']
 
     # Dataset Load
-    test_set = CocoDetection(image_directory_path=imgs_path,  annotation_file_path=test_path, image_processor=image_processor, enhancement='clahe')
+    test_set = CocoDetection(image_directory_path=imgs_path,  annotation_file_path=test_path, image_processor=image_processor, enhancement=enhancement)
     id2label = {k: v["name"] for k, v in test_set.coco.cats.items()}
 
     # Original Image

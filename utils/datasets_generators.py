@@ -5,7 +5,7 @@ from PIL import Image
 from torchvision.transforms import ToTensor
 from torchvision.datasets import CocoDetection
 from imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
-from image_enhancement_functions import clahe, color_balance_adjustment
+from image_enhancement_functions import clahe, color_balance_adjustment, histogram_equalization
 
 class CocoDetection(CocoDetection):
     def __init__(
@@ -37,8 +37,12 @@ class CocoDetection(CocoDetection):
         # Enhance
         if self.enhancement == 'clahe':
             my_pixel_values = clahe(my_pixel_values)
-        elif self.enhancement == 'color_balance':
+        elif self.enhancement == 'color_balance_adjustment':
             my_pixel_values = color_balance_adjustment(my_pixel_values)
+        elif self.enhancement == 'he':
+            my_pixel_values = histogram_equalization(my_pixel_values)
+        else:
+            pass
         # Resize
         size1, size2 = 700, 700
         image_rescaled = ia.imresize_single_image(my_pixel_values, (size1, size2))
